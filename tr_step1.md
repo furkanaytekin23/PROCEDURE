@@ -1,57 +1,22 @@
-Bu senaryoda sizlerden, size tahsis edilen makinelerde aşağıdaki talimatlar gereğince Linux komut satırında kullanıcının SQL sorgularını deneyebileceği şekilde gerekli komutların sağlandığı, "select join left" ve "select join right" işlemlerinin yapılması beklenmektedir.
+Bu senaryoda sizlerden, size tahsis edilen makinelerde aşağıdaki talimatlar gereğince Employees tablosuna kayıtlar insert eden bir procedure oluşturmanız istenmektedir.
 
-Senaryo boyunca uygulama adımlarında belirtildiği şekilde SQL veritabanı tabloları oluşturulacak ve "select join left" ve "select join right" komutları yardımıyla sonuçların talimatlara uygun şekilde çıktılarının gözlemlenmesi istenmektedir.
+Veritabanı "Employees" adlı bir çalışanlar tablosu içermeli.
+
+### 🔥 Temel Komutlar 🔥
+SELECT: Veritabanı tablosundan veri çekmek için kullanılır. Hangi sütunları seçmek istediğinizi ve hangi tablodan seçmek istediğinizi belirtmelisiniz.
+INSERT: Yeni kayıtları veritabanı tablosuna eklemek için kullanılır. Tablo adını ve eklemek istediğiniz sütunlara ait değerleri belirtmelisiniz.
+WHERE: SQL sorgularında veriyi filtrelemek için kullanılır. Belirli bir koşulu karşılayan satırları seçmek için NEREDE koşullarını belirtmelisiniz.
+CREATE: Veritabanı nesnelerini (örneğin tablolar, indeksler veya görünümler) oluşturmak için kullanılır. Oluşturmak istediğiniz nesne türünü belirtmeli ve gerekli bilgileri sağlamalısınız.
+DELETE: Oluşturmuş olduğunuz veritabanındaki nesnelerden belirli bir müşteriyi delete komutu yardımıyla silebilirsiniz.
 
 ### 🚀 Uygulama Adımları 🚀
 
-1. Alpine Linux sisteminizde SQLite veritabanının kurulu olduğundan emin olunuz. Eğer kurulu değilse, Alpine Linux paket yöneticisi olan `apk` ile SQLite kurabilirsiniz. `apk add sqlite`
-2. `/home/bb/` dizini altında `mydatabase.db` adında veritabanı dosyası oluşturunuz.
-3. `sqlite3 mydatabase.db`komutunu girerek veritabanına bağlananın.
-4. `.mode column` komutunu kullanarak sorgu sonuçlarını sütun düzeninde görüntülemeyi ayarlayın.
-5. `.headers on` komutunu kullanarak sorgu sonuçlarında sütun başlıklarını görüntülemeyi ayarlayın.
-6. Aşağıdaki SQL komutlarını kullanarak örnek tablo oluşturunuz.
-
-```
-CREATE TABLE customers (
-    id INTEGER PRIMARY KEY,
-    name TEXT,
-    email TEXT
-);
-
-CREATE TABLE orders (
-    id INTEGER PRIMARY KEY,
-    customer_id INTEGER,
-    product TEXT,
-    amount REAL
-);
-```
-
-7. Aşağıdaki SQL komutlarıyla da örnek verileri tablolara ekleyiniz.
-
-```
-INSERT INTO customers (name, email) VALUES ('Alice', 'alice@example.com');
-INSERT INTO customers (name, email) VALUES ('Bob', 'bob@example.com');
-
-INSERT INTO orders (customer_id, product, amount) VALUES (1, 'Product A', 100.0);
-INSERT INTO orders (customer_id, product, amount) VALUES (1, 'Product B', 150.0);
-INSERT INTO orders (customer_id, product, amount) VALUES (2, 'Product A', 200.0);
-
-```
-
-8. Müşteri adlarıyla beraber, müşteriye ait siparişleri sol birleştirme ile görüntülemek için aşağıdaki SQL sorgusunu giriniz.
-
-```
-SELECT customers.name, orders.product, orders.amount
-FROM customers
-LEFT JOIN orders ON customers.id = orders.customer_id;
-```
-
-9. Ürün isimleriyle beraber, siparişi veren müşterileri sağ birleştirme ile görüntülemek için aşağıdaki SQL sorgusunu giriniz.
-
-```
-SELECT customers.name, orders.product, orders.amount
-FROM orders
-RIGHT JOIN customers ON orders.customer_id = customers.id;
-```
-
-10. `.quit` komutunu kullanarak SQLite terminalinden çıkabilirsiniz.
+1. `su - postgres` komutuyla Postgres sunucusuna bağlanın.
+2. `psql` veritabanına giriş yapın.
+3. Yeni oluşturulan veritabanına bağlanmak için `\c YOUR_DATABASE_NAME;` komutunu kullanabilirsiniz.
+4. id,name,surname,age,salary sütunlarına sahip Employees tablosunu oluşturun.
+5. `\o /tmp/cevap` -> sorguyu kaydedeceğin alanı belirleyebilirsin.
+6. Oluşturduğun Employees tablosuna kayıt insert eden bir procedure oluşturan daha sonra oluşturduğunuz procedure çalıştırıp Employees tablosuna id'si 23, adı Furkan, soyadı Aytekin, yaşı 27 ve maaşı 11000 olan çalışanı ekleyen sorguları yapın.
+7. `/o` -> sorguları kaydedin.
+8. Bir PostgreSQL veritabanından çıkmak için `\q` komutunu kullanabilirsiniz.
+9. `cat /tmp/cevap` -> sonucu okuyabilirsin.
