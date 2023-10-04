@@ -4,9 +4,13 @@ Veritabanı "Employees" adlı bir çalışanlar tablosu içermeli.
 
 ### 🔥 Temel Komutlar 🔥
 SELECT: Veritabanı tablosundan veri çekmek için kullanılır. Hangi sütunları seçmek istediğinizi ve hangi tablodan seçmek istediğinizi belirtmelisiniz.
+
 INSERT: Yeni kayıtları veritabanı tablosuna eklemek için kullanılır. Tablo adını ve eklemek istediğiniz sütunlara ait değerleri belirtmelisiniz.
+
 WHERE: SQL sorgularında veriyi filtrelemek için kullanılır. Belirli bir koşulu karşılayan satırları seçmek için NEREDE koşullarını belirtmelisiniz.
+
 CREATE: Veritabanı nesnelerini (örneğin tablolar, indeksler veya görünümler) oluşturmak için kullanılır. Oluşturmak istediğiniz nesne türünü belirtmeli ve gerekli bilgileri sağlamalısınız.
+
 DELETE: Oluşturmuş olduğunuz veritabanındaki nesnelerden belirli bir müşteriyi delete komutu yardımıyla silebilirsiniz.
 
 ### 🚀 Uygulama Adımları 🚀
