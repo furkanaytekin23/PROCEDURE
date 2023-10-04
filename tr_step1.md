@@ -16,7 +16,9 @@ DELETE: Oluşturmuş olduğunuz veritabanındaki nesnelerden belirli bir müşte
 3. Yeni oluşturulan veritabanına bağlanmak için `\c YOUR_DATABASE_NAME;` komutunu kullanabilirsiniz.
 4. id,name,surname,age,salary sütunlarına sahip Employees tablosunu oluşturun.
 5. `\o /tmp/cevap` -> sorguyu kaydedeceğin alanı belirleyebilirsin.
-6. Oluşturduğun Employees tablosuna kayıt insert eden bir procedure oluşturan daha sonra oluşturduğunuz procedure çalıştırıp Employees tablosuna id'si 23, adı Furkan, soyadı Aytekin, yaşı 27 ve maaşı 11000 olan çalışanı ekleyen sorguları yapın.
-7. `/o` -> sorguları kaydedin.
-8. Bir PostgreSQL veritabanından çıkmak için `\q` komutunu kullanabilirsiniz.
-9. `cat /tmp/cevap` -> sonucu okuyabilirsin.
+6. Oluşturduğun Employees tablosuna kayıt insert eden bir procedure oluşturan daha sonra oluşturunuz
+7. Procedure çalıştırıp Employees tablosuna id'si 23, adı Furkan, soyadı Aytekin, yaşı 27 ve maaşı 11000 olan çalışanı ekleyin.
+8. Eklediğin çalışanın id, name ve surname alanını sorgulayın.
+9. `/o` -> sorguları kaydedin.
+10. Bir PostgreSQL veritabanından çıkmak için `\q` komutunu kullanabilirsiniz.
+11. `cat /tmp/cevap` -> sonucu okuyabilirsin.
